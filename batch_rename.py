@@ -37,36 +37,37 @@ def main(args):
 	./file_1.txt -> ./new-file_1.txt
 	'''
 	
-	if len(args) == 1 or args[1] == 'help' or len(args) > 4:
+	if (len(args) == 1 and args[1] == 'help') or (len(args) != 4):
 		print('USAGE: file_rename [directory] ' + \
 			'[part of name to replace] [replace with]')
-		
-	dir = args[1]
-	
-	if os.path.isdir(dir):
-		old_chars = args[2]
-		new_chars = args[3]
-		files = os.listdir(dir)
-		dir += '/'
-		
-		count = 1
-		total_files = len(files)
-		
-		print('\nWorking in directory ' + dir)
-		for file in files:
-			old_name = str(file)
-			new_name = old_name.replace(old_chars, new_chars)
-			print('Renaming file ' + str(count) + '/' + \
-				str(total_files) + ':\t' + old_name + '\t-> ' + new_name + \
-				'.')
-			os.rename(os.path.join(dir + old_name), os.path.join(dir + \
-				new_name))
-			count += 1
 			
-		print('Finished.')
-		
 	else:
-		print(dir + ' is not a valid directory.')
+		dir = args[1]
+		
+		if os.path.isdir(dir):
+			old_chars = args[2]
+			new_chars = args[3]
+			files = os.listdir(dir)
+			dir += '/'
+			
+			count = 1
+			total_files = len(files)
+			
+			print('\nWorking in directory ' + dir)
+			for file in files:
+				old_name = str(file)
+				new_name = old_name.replace(old_chars, new_chars)
+				print('Renaming file ' + str(count) + '/' + \
+					str(total_files) + ':\t' + old_name + '\t-> ' + new_name + \
+					'.')
+				os.rename(os.path.join(dir + old_name), os.path.join(dir + \
+					new_name))
+				count += 1
+				
+			print('Finished.')
+			
+		else:
+			print(dir + ' is not a valid directory.')
 		
 	return 0
 
