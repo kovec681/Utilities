@@ -22,7 +22,6 @@
 #  
 #  
 
-import os
 
 def main(args):
 	'''
@@ -58,8 +57,8 @@ def main(args):
 				old_name = str(file)
 				new_name = old_name.replace(old_chars, new_chars)
 				print('Renaming file ' + str(count) + '/' + \
-					str(total_files) + ':\t' + old_name + '\t-> ' + new_name + \
-					'.')
+					str(total_files) + ':\t"' + old_name + '"\t-> "' + \
+					new_name + '"')
 				os.rename(os.path.join(dir + old_name), os.path.join(dir + \
 					new_name))
 				count += 1
@@ -72,5 +71,5 @@ def main(args):
 	return 0
 
 if __name__ == '__main__':
-    import sys
+    import sys, os
     sys.exit(main(sys.argv))
