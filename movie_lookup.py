@@ -123,6 +123,8 @@ def main(args):
                         if len(result) > 3:
                             # Get official title
                             title = result[0]
+                            if title[0:len('the')].lower() == 'the':
+                                title = title[len('the '):] + ', the'
                             
                             # Get year
                             if year == '':
