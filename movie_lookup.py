@@ -115,7 +115,7 @@ def main(args):
                     
                     if updateEntry:
                         # Look up title and get result
-                        print('Looking up "' + title + '"')
+                        print('\nLooking up "' + title + '"')
                         r = requests.get('https://www.imdb.com/find?q=' + title)
                         result = getMovieResult(r.text, title)
                         
