@@ -11,4 +11,3 @@ Various utility scripts that I use for my own convenience.
 - Used to add information about a movie to a list of movies
 - Usage: python3 movie_lookup.py <input file> <output TSV file>
 - Example: Movie Title -> Movie Title <TAB> Year <TAB> IMDB URL <TAB> Media Format
-- 
